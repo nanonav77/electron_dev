@@ -1,0 +1,69 @@
+.btn_nav {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    height: 55px;
+    width: 100px;
+  }
+  
+  /* Darker background on mouse-over */
+  .btn_nav:hover {
+    background-color: #272727;
+    font-size: 16px;
+  }
+
+  .btn_nav_init {
+    background-color: #bc9b59;
+    border: none;
+    color: white;
+    padding: 12px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    height: 55px;
+    width: 70px;
+  }
+
+  .btn_nav_init:hover {
+    background-color: #272727;
+    font-size: 24px;
+  }
+
+  .navbar-custom {
+    height: 55px;
+  }
+
+  .btn_menu_init {
+    background-color: transparent;
+    border: 1px solid #353535;
+    color: #272727;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+  }
+
+  .btn_menu_init:hover {
+    background-color: #bc9b59;;
+    font-size: 18px;
+  }
+  
+  .bm-container {
+    display: grid;
+    margin: auto;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 12px;
+    background-color: transparent;
+    padding: 17px;
+  }
+  
+  .bm-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;    
+    font-size: 10px;
+  }
+
+  

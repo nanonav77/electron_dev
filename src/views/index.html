@@ -4,21 +4,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Inicio | Conaffex</title>
+    <link rel="stylesheet" href="../css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
-  <body>
+  <body style= "background-color:#CCD1D1">
 
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      
-      <ul class="navbar-nav">
-        
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link 1</a>
-        </li>
+    <div>
+      <nav class="navbar-expand-sm navbar-dark navbar-custom" style= "background-color:#303030">
                 
-      </ul>
+        <div class="d-flex flex-row-reverse"> 
+        
+        <ul class="navbar-nav" style="margin-left: auto;">
+            
+          <div><button class="btn_nav"><i class="bi bi-gear-fill"></i> Ajustes</button></div>
+          
+          <div><button class="btn_nav"><i class="bi bi-box-arrow-right"></i> Salir</button></div> 
 
-    </nav>
+        </ul>
+
+        <ul class="navbar-nav">
+            
+          <div><button class="btn_nav_init"><i class="bi bi-menu-up"></i></button></div> 
+        
+        </ul>
+
+        </div>
+
+      </nav> 
+    
+    </div>
+    
+    <div class="bm-container">
+
+      <div><button class="btn_menu_init"><i class="bi bi-pencil-square"></i> Producción</button></div>
+      
+      <div class="dropdown">
+        <button class="btn_menu_init dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-gear"></i>
+          Colaboradores
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="#">1. Añadir Colaborador</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">2. Modificar Colaborador</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">3. Eliminar Colaborador</a></li>
+        </ul>
+      </div>
+
+      <div class="dropdown">
+        <button class="btn_menu_init dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-image-alt"></i>
+          Fincas
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="#">1. Añadir Finca</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">2. Modificar Finca</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">3. Eliminar Finca</a></li>
+        </ul>
+      </div>
+
+      <div><button class="btn_menu_init"><i class="bi bi-cash-coin"></i> Planilla</button></div>
+      <div><button class="btn_menu_init"><i class="bi bi-pie-chart-fill"></i> Reportería</button></div>
+
+      
+      
+    
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
