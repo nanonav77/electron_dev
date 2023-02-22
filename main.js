@@ -1,30 +1,45 @@
 
+const { app, BrowserWindow, ipcMain} = require("electron")
+const path = require("path")
 
-const { app, BrowserWindow} = require("electron")
-
-
+// DECLARAMOS LA FUNCIÓN QUE CREA 
+// LA VENTANA DE PRINCIPAL DEL SISTEMA
 function createMainWindow(){
 
     const { screen } = require('electron')
     const primaryDisplay = screen.getPrimaryDisplay()
     const { width, height } = primaryDisplay.workAreaSize
     
-    mainWindow = new BrowserWindow({ width, height})
+    mainWindow = new BrowserWindow({ width, height,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        },
+        
+    })
     
     mainWindow.loadFile('src/views/index.html')
     
-
 }
 
+// DECLARAMOS LA FUNCIÓN QUE CREA 
+// LA VENTANA DE AGREGAR COLABORADOR
 function createAddColaboradorWindow(){
 
     const addColaboradorWindow = new BrowserWindow({
     
-        width: 1000,
-        height: 700,
+        width: 850,
+        height: 550,
         modal: true,
-        show: false,
-        parent: mainWindow
+        show:false,
+        resizable:false,
+        parent: mainWindow,
+
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            enableRemoteModule: true,
+        },
 
     })
 
@@ -35,9 +50,27 @@ function createAddColaboradorWindow(){
     });
 
 }
+// LLAMAMOS LA FUNCIÓN DE VENTANA PARA AÑADIR COLABORADOR
+ipcMain.on("openAddColaboradorWindow", (event, arg) => {
+    createAddColaboradorWindow();
+});
+
+
 
 app.whenReady().then(() => {
  
-    createMainWindow() 
+    createMainWindow();
+    app.on("activate", () => {
+        if (BrowserWindow.getAllWindows().length === 0) {
+          createMainWindow();
+        }
+    }); 
 
-})
+});
+
+app.on("window-all-closed", () => {
+    if (process.platform !== "darwin") {
+      app.quit();
+    }
+});
+
