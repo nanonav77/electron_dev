@@ -81,7 +81,6 @@
       // **AÑADIR COLABORADOR**
       const ipc = window.require('electron').ipcRenderer;
       function goToAddColaboradorWindow(){
-        console.log("entro"); 
         ipc.send('openAddColaboradorWindow');  
       }
       
