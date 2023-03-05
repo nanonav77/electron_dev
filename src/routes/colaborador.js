@@ -1,10 +1,11 @@
 
 const formAddColaborador = document.getElementById('idFormAddColaborador');
+const campoNombreCompleto = document.getElementById('inputAdNombre');
 
 formAddColaborador.addEventListener('submit',(e) => {
 
-    e.preventDefault()
+    e.preventDefault();
 
-    console.log("Hello Nano")
+    console.log(campoNombreCompleto.value);
 
 })
