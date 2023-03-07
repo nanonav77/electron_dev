@@ -1,2 +1,3 @@
 https://sudhakarinfotech.com/bootstrap5/bootstrap5-navbar
 https://icons.getbootstrap.com/
+https://www.geeksforgeeks.org/profile-application-using-python-flask-and-mysql/
