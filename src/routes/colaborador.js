@@ -1,4 +1,6 @@
 
+const dbConfig = require("../config/dbConfig");
+
 // ---- DECLARAMOS LOS ELEMENTOS DEL DOM ----
 
 const formAddColaborador = document.getElementById('idFormAddColaborador');
@@ -19,7 +21,22 @@ formAddColaborador.addEventListener('submit',(e) => {
 
     e.preventDefault();
 
-    console.log(opcionTipo.value);
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", dbConfig.HOST + "colaborador");
+    
+    const body = JSON.stringify({"nombreCompleto": campoNombreCompleto.value, "identificacion": campoIdentificacion.value, "telefono": campoTelefono.value, "tarjeta": campoTarjeta.value, "observaciones": campoObservaciones.value, "tipo": opcionTipo.value, "genero": opcionGenero.value} );
+    console.log(body);
+    
+    xhr.onload = () => {
+    
+        if (xhr.readyState == 4 && xhr.status == 201) {
+            console.log(JSON.parse(xhr.responseText));
+        } else {
+            console.log(`Error: ${xhr.status}`);
+        }
+    };
+
+    xhr.send(body);
 
 });
 

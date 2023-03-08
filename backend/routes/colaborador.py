@@ -1,18 +1,20 @@
 from flask import jsonify
 import MySQLdb.cursors
+import json
 
 def addColaborador(mysql,request):
     
     msg = ''
+    datosIngresar = json.loads(request.data)
 
-    if request.method == 'POST' and 'nombreCompleto' in request.form and 'identificacion' in request.form and 'tarjeta' in request.form and 'telefono' in request.form and 'observaciones' in request.form and 'tipo' in request.form and 'genero' in request.form:
-       nombreCompleto = request.form['nombreCompleto']
-       identificacion = request.form['identificacion']
-       tarjeta        = request.form['tarjeta']
-       telefono       = request.form['telefono']
-       observaciones  = request.form['observaciones']
-       tipo           = request.form['tipo']
-       genero         = request.form['genero']
+    if request.method == 'POST' and 'nombreCompleto' in datosIngresar and 'identificacion' in datosIngresar and 'tarjeta' in datosIngresar and 'telefono' in datosIngresar and 'observaciones' in datosIngresar and 'tipo' in datosIngresar and 'genero' in datosIngresar:
+       nombreCompleto = datosIngresar["nombreCompleto"]
+       identificacion = datosIngresar["identificacion"]
+       tarjeta        = datosIngresar["tarjeta"]
+       telefono       = datosIngresar["telefono"]
+       observaciones  = datosIngresar["observaciones"]
+       tipo           = datosIngresar["tipo"]
+       genero         = datosIngresar["genero"]
 
        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
        cursor.execute('INSERT INTO COLABORADOR_FEX VALUES (NULL, % s, % s, % s, % s, % s, % s, % s)', (nombreCompleto,identificacion,telefono,tarjeta,observaciones,tipo,genero, ))
@@ -22,7 +24,7 @@ def addColaborador(mysql,request):
     elif request.method == 'POST':
         msg = 'Por favor ingresar los datos solicitados!'
     
-    return msg
+    return jsonify(msg)
 
 
 def getAllColaboradores(mysql):
