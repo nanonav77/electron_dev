@@ -47,7 +47,7 @@
         <ul class="dropdown-menu dropdown-menu-dark">
           <li><a class="dropdown-item" id="liAddColaborador" href="#" onClick="goToAddColaboradorWindow();">1. Añadir Colaborador</a></li>
           <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">2. Modificar Colaborador</a></li>
+          <li><a class="dropdown-item" id="liUpdateColaborador" href="#" onClick="goToUpdateColaboradorWindow();">2. Modificar Colaborador</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="#">3. Eliminar Colaborador</a></li>
         </ul>
@@ -82,6 +82,13 @@
       const ipc = window.require('electron').ipcRenderer;
       function goToAddColaboradorWindow(){
         ipc.send('openAddColaboradorWindow');  
+      }
+
+      // FUNCION DEL BOTON PARA ABRIR VENTANA
+      // **MODIFICAR COLABORADOR**
+      const ipc2 = window.require('electron').ipcRenderer;
+      function goToUpdateColaboradorWindow(){
+        ipc2.send('openUpdateColaboradorWindow');  
       }
       
     </script>

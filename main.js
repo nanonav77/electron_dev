@@ -56,6 +56,39 @@ ipcMain.on("openAddColaboradorWindow", (event, arg) => {
 });
 
 
+// DECLARAMOS LA FUNCIÓN QUE CREA 
+// LA VENTANA DE MODIFICAR COLABORADOR
+function createUpdateColaboradorWindow(){
+
+    const updateColaboradorWindow = new BrowserWindow({
+    
+        width: 850,
+        height: 550,
+        modal: true,
+        show:false,
+        resizable:false,
+        parent: mainWindow,
+
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            enableRemoteModule: true,
+        },
+
+    })
+
+    updateColaboradorWindow.loadFile('src/views/updCol.html')
+
+    updateColaboradorWindow.once("ready-to-show", () => {
+        updateColaboradorWindow.show();
+    });
+
+}
+// LLAMAMOS LA FUNCIÓN DE VENTANA PARA MODIFICAR COLABORADOR
+ipcMain.on("openUpdateColaboradorWindow", (event, arg) => {
+    createUpdateColaboradorWindow();
+});
+
 
 app.whenReady().then(() => {
  
