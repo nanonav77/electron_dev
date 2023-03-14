@@ -108,10 +108,10 @@ function setColaboradoresTabla(data){
 function mostrarColaboradorActualizar(numero){
 
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", dbConfig.HOST + "colaborador");
+    xhr.open("POST", dbConfig.HOST + "getOneColaborador");
     
-    const body = JSON.stringify({"numero": numero} );
-
+    const numeroID = JSON.stringify({"numero": numero} );
+ 
     xhr.onload = () => {
     
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -121,6 +121,6 @@ function mostrarColaboradorActualizar(numero){
         }
     };
 
-    xhr.send(body);
+    xhr.send(numeroID);
 
 };

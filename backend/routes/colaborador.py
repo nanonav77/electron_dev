@@ -36,19 +36,20 @@ def getAllColaboradores(mysql):
     return jsonify(colaboradores)
 
 
-def getColaborador(mysql,request):
+def getOneColaborador(mysql,request):
  
     msg = ''
+    colaborador = ''
     datoIngresado = json.loads(request.data)
 
-    if request.method == 'GET' and 'numero' in datoIngresado:
-       numero = datoIngresado["numero"]       
+    if request.method == 'POST' and 'numero' in datoIngresado:
+       numero = datoIngresado["numero"]      
        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-       cursor.execute('SELECT * FROM COLABORADOR_FEX WHERE NUMERO = %s ', (numero, ))
-       colaborador = cursor.fetchone()
+       cursor.execute('SELECT * FROM COLABORADOR_FEX WHERE NUMERO = % s', (numero, ))
+       colaborador = cursor.fetchall()
        msg = 'Se ha encontrado el colaborador con éxito!'
     
-    elif request.method == 'GET':
+    elif request.method == 'POST':
        msg = 'No se ha encontrado ningún colaborador!'
 
     return jsonify(colaborador)

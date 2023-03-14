@@ -26,7 +26,6 @@ formAddColaborador.addEventListener('submit',(e) => {
     xhr.open("POST", dbConfig.HOST + "colaborador");
     
     const body = JSON.stringify({"nombreCompleto": campoNombreCompleto.value, "identificacion": campoIdentificacion.value, "telefono": campoTelefono.value, "tarjeta": campoTarjeta.value, "observaciones": campoObservaciones.value, "tipo": opcionTipo.value, "genero": opcionGenero.value} );
-
     xhr.onload = () => {
     
         if (xhr.readyState == 4 && xhr.status == 200) {

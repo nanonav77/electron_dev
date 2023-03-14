@@ -28,9 +28,9 @@ def registrarColaborador():
 def obtenerColaboradores():    
     return getAllColaboradores(mysql)
 
-@app.route('/colaborador',methods = ['GET'])
+@app.route('/getOneColaborador',methods = ['POST'])
 def obtenerColaborador():    
-    return getColaborador(mysql,request)
+    return getOneColaborador(mysql,request)
 
 @app.route('/colaborador',methods = ['PUT'])
 def actualizarColaborador():    
