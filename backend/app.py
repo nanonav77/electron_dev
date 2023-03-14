@@ -1,8 +1,9 @@
 from flask import Flask, jsonify, request
 from flask_mysqldb import MySQL
 
+
 ## Importamos los files con las funciones de cada módulo
-from routes.colaborador import *
+from backend.routes.colaborador import *
 
 app = Flask(__name__)
 
@@ -26,6 +27,10 @@ def registrarColaborador():
 @app.route('/colaboradores',methods = ['GET'])
 def obtenerColaboradores():    
     return getAllColaboradores(mysql)
+
+@app.route('/colaborador',methods = ['GET'])
+def obtenerColaborador():    
+    return getColaborador(mysql,request)
 
 @app.route('/colaborador',methods = ['PUT'])
 def actualizarColaborador():    
